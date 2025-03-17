@@ -1,1 +1,22 @@
 @import "tailwindcss";
+
+.nav-link {
+    @apply text-gray-400 hover:text-white transition-colors;
+  }
+  
+  .icon {
+    @apply text-gray-400 hover:text-white transition-colors;
+  }
+  
+  .search-bar {
+    @apply pl-8 pr-12 py-1 rounded-md flex items-center bg-gray-800 text-gray-400;
+  }
+  
+  .shortcut-key {
+    @apply absolute right-2 top-1/2 transform -translate-y-1/2 text-xs px-1 rounded bg-gray-700;
+  }
+  
+  .mobile-link {
+    @apply text-white text-lg hover:text-gray-300 transition-colors;
+  }
+  

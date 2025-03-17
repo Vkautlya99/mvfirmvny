@@ -1,70 +1,28 @@
-import React, { useState, useEffect } from "react";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { Menu, X } from 'lucide-react';
-import logo from "../assets/logo.jpg";
+import React from 'react'
+import { useTheme } from '../contextApi/ThemeContext';
+import BackgroundBeamsWithCollisionDemo from '../ui/Background-breams-with-collision';
 
-const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
+function Header() {
+    const { isDarkMode } = useTheme();
+    return (
+        <BackgroundBeamsWithCollisionDemo>
+            <h2 className="flex justify-center items-center px-60 flex-col relative z-20 font-bold text-center font-sans tracking-tight">
+                <span className={`${isDarkMode ? 'text-gray-400' : 'text-gray-800'} text-4xl lg:text-7xl mb-5`}>What&apos;s cooler than AI?{" "}</span>
+                <div className="relative mx-auto inline-block w-max [filter:drop-shadow(0px_1px_3px_rgba(27,_37,_80,_0.14))]">
+                    <div className="relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-500 py-2 md:py-4">
+                        <span className="text-2xl md:text-4xl lg:text-7xl">Exploding Intelligence.</span>
+                    </div>
+                    <div className="relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-500 py-2 md:py-4">
+                        <span className="text-2xl md:text-4xl lg:text-7xl">Powering the future,</span>
+                    </div>
+                    <div className="relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-500 py-2 md:py-4">
+                        <span className="text-2xl md:text-4xl lg:text-7xl ">one AI breakthrough at a time!"</span>
+                    </div>
+                </div>
+            </h2>
 
-  useEffect(() => {
-    AOS.init({ duration: 700 });
-  }, []);
+        </BackgroundBeamsWithCollisionDemo>
+    )
+}
 
-  const toggleMenu = () => setIsOpen(!isOpen);
-
-  return (
-    <header className="w-[90%] mx-auto py-4">
-      {/* Desktop & Tablet View */}
-      <div className="flex items-center justify-between">
-        {/* Logo and Links */}
-        <div className="flex items-center gap-6">
-          <img src={logo} alt="Logo" className="w-20 h-20 md:w-32 md:h-32 transition-all ease-in-out duration-500 transform hover:scale-115" data-aos="fade-right" />
-          <nav className="hidden md:flex items-center gap-6" data-aos="fade-down">
-            <h3 className="cursor-pointer hover:text-teal-500 text-xl font-semibold bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-600 text-transparent bg-clip-text">Home</h3>
-            <h3 className="cursor-pointer hover:text-teal-500 text-xl font-semibold bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-600 text-transparent bg-clip-text">About</h3>
-            <h3 className="cursor-pointer hover:text-teal-500 text-xl font-semibold bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-600 text-transparent bg-clip-text">Contact</h3>
-          </nav>
-        </div>
-
-        {/* Buttons */}
-        <div className="hidden md:flex space-x-18" data-aos="fade-left">
-          <button className="bg-gradient-to-r from-emerald-300 via-teal-400 to-cyan-500 text-white font-medium px-4 py-2 rounded-lg shadow-lg transition-transform ease-in-out duration-500 transform hover:scale-105">
-            Login
-          </button>
-          <button className="bg-gradient-to-r from-blue-300 via-purple-400 to-violet-500 text-white font-medium px-4 py-2 rounded-lg shadow-lg transition-transform ease-in-out duration-500 transform hover:scale-105">
-            Sign Up
-          </button>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <div className="md:hidden" data-aos="fade-left">
-          <button onClick={toggleMenu} className="text-teal-500 focus:outline-none">
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden mt-4 space-y-4 text-center" data-aos="fade-down">
-          <div className="flex items-center justify-center gap-6">
-            <h3 className="cursor-pointer hover:text-teal-500 text-xl font-semibold bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-600 text-transparent bg-clip-text">Home</h3>
-            <h3 className="cursor-pointer hover:text-teal-500 text-xl font-semibold bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-600 text-transparent bg-clip-text">About</h3>
-            <h3 className="cursor-pointer hover:text-teal-500 text-xl font-semibold bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-600 text-transparent bg-clip-text">Contact</h3>
-          </div>
-          <div className="space-y-2">
-            <button className="w-full bg-gradient-to-r from-emerald-300 via-teal-400 to-cyan-500 text-white font-medium px-4 py-2 rounded-lg shadow-lg transition-transform ease-in-out duration-500 transform hover:scale-105">
-              Login
-            </button>
-            <button className="w-full bg-gradient-to-r from-blue-300 via-purple-400 to-violet-500 text-white font-medium px-4 py-2 rounded-lg shadow-lg transition-transform ease-in-out duration-500 transform hover:scale-105">
-              Sign Up
-            </button>
-          </div>
-        </div>
-      )}
-    </header>
-  );
-};
-
-export default Header;
+export default Header
