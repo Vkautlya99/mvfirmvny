@@ -398,9 +398,9 @@ export default function Footer() {
 
   return (
     <div
-      className="flex flex-col md:flex-row  items-center justify-center py-20 h-screen md:h-auto dark:bg-black bg-white relative w-full">
+      className="flex flex-col md:flex-row  items-center justify-center py-20  dark:bg-black bg-white relative w-full">
       <div
-        className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4">
+        className="max-w-7xl mx-auto w-[500px] md:w-full relative overflow-hidden h-[40rem] px-4">
         <motion.div
           initial={{
             y: 20,
@@ -413,15 +413,17 @@ export default function Footer() {
             duration: 1,
           }}
           className="div">
-          <h2
-            className="text-center text-xl md:text-4xl font-bold text-black dark:text-white">
-            We sell soap worldwide
-          </h2>
-          <p
-            className="text-center text-base md:text-lg font-normal text-neutral-700 dark:text-neutral-200 max-w-md mt-2 mx-auto">
-            This globe is interactive and customizable. Have fun with it, and
-            don&apos;t forget to share it. :)
-          </p>
+          <div className="hidden md:block">   
+            <h2
+                className="text-center text-xl md:text-4xl font-bold text-black dark:text-white">
+                We sell soap worldwide
+            </h2>
+            <p
+                className="text-center text-base md:text-lg font-normal text-neutral-700 dark:text-neutral-200 max-w-md mt-2 mx-auto">
+                This globe is interactive and customizable. Have fun with it, and
+                don&apos;t forget to share it. :)
+            </p>
+          </div>
         </motion.div>
         <div
           className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40" />
