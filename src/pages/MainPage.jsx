@@ -4,6 +4,7 @@ import SearchModal from '../components/SearchModel';
 import { useTheme } from '../contextApi/ThemeContext';
 import BackgroundBeamsWithCollisionDemo from '../ui/Background-breams-with-collision';
 import Header from '../components/Header';
+import Main from '../components/Main';
 
 const MainPage = () => {
   const { isDarkMode } = useTheme();
@@ -36,6 +37,9 @@ const MainPage = () => {
       >
         <Navbar onSearchClick={() => setIsSearchOpen(true)} />
         <Header />
+        <main>
+          <Main />
+        </main>
       </div>
     </>
   );
